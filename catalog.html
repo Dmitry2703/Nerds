@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nerds Catalog</title>
+	<link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script>
+    var html = document.documentElement;
+    html.className = html.className.replace("no-js", "js");
+  </script>
+</head>
+<body>
+	<div class="page-wrapper">
+    <header class="page-header">
+      <div class="top-panel cl">
+        <a href="index.html" class="top-panel__logo logo">
+          <img src="img/logo.png" alt="Nerds" width="139" height="56">
+        </a>
+        <a href="#" class="cart">Корзина</a>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="index.html" class="nav__link link">Студия</a></li>
+            <li class="nav__item"><a href="#" class="nav__link link">Клиенты</a></li>
+            <li class="nav__item"><a href="#" class="nav__link link">Магазин</a></li>
+            <li class="nav__item"><a href="#" class="nav__link link">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="page-header__caption">Добро пожаловать в магазин<br>готовых макетов</div>
+    </header>
+    <main class="page-content cl">
+      <form class="form" action="/" method="post">
+        <fieldset class="form__fieldset">
+          <legend class="form__caption">Стоимость:</legend>
+          <div class="filter">
+            <div class="filter__range-controls">
+              <div class="filter__scale">
+                <div class="filter__bar"></div>
+              </div>
+              <div class="filter__toggle filter__toggle--min"></div>
+              <div class="filter__toggle filter__toggle--max"></div>
+            </div>
+            <div class="filter__price-controls">
+              <label class="filter__text" for="text-item1">от</label>
+              <input id="text-item1" class="form__input" type="text" placeholder="0">
+              <label class="filter__text" for="text-item2">до</label>
+              <input id="text-item2" class="form__input" type="text" placeholder="15000">
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="form__fieldset">
+          <legend class="form__caption">Сетка:</legend>
+          <input id="radio-item1" class="form__radio" type="radio" name="radio-item" value="radio-item1" checked>
+          <label for="radio-item1">Адаптивная</label>
+          <input id="radio-item2" class="form__radio" type="radio" name="radio-item" value="radio-item2">
+          <label for="radio-item2">Фиксированная</label>
+          <input id="radio-item3" class="form__radio" type="radio" name="radio-item" value="radio-item3">
+          <label for="radio-item3">Резиновая</label>
+        </fieldset>
+        <fieldset class="form__fieldset">
+          <legend class="form__caption">Особенности:</legend>
+          <input id="checkbox-item1" class="form__checkbox" type="checkbox" name="checkbox-item1" checked>
+          <label for="checkbox-item1">Слайдер</label>
+          <input id="checkbox-item2" class="form__checkbox" type="checkbox" name="checkbox-item2">
+          <label for="checkbox-item2">Блок преимуществ</label>
+          <input id="checkbox-item3" class="form__checkbox" type="checkbox" name="checkbox-item3" checked>
+          <label for="checkbox-item3">Новости</label>
+          <input id="checkbox-item4" class="form__checkbox" type="checkbox" name="checkbox-item4">
+          <label for="checkbox-item4">Галерея</label>
+          <input id="checkbox-item5" class="form__checkbox" type="checkbox" name="checkbox-item5">
+          <label for="checkbox-item5">Корзина</label>
+        </fieldset>
+        <button class="form__btn btn" type="submit">Показать</button>
+      </form>
+      <div class="catalog">
+        <div class="sorting">
+          <span class="sorting__caption">сортировать:</span>
+          <ul class="sorting__list">
+            <li class="sorting__item"><a href="#" class="sorting__link link">по цене</a></li>
+            <li class="sorting__item"><a href="#" class="sorting__link link">по типу</a></li>
+            <li class="sorting__item"><a href="#" class="sorting__link link">по функционалу</a></li>
+          </ul>
+          <div class="sorting__arrows">
+            <a href="#" class="sorting__arrow sorting__arrow--active icon-down-dir text-hide">вниз</a>
+            <a href="#" class="sorting__arrow icon-up-dir text-hide">вверх</a>
+          </div>
+        </div>
+        <article class="catalog-item">
+          <div class="catalog-item__top">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+          <div class="catalog-item__img-wrapper">
+            <img src="img/catalog-item1.jpg" alt="Catalog-item1" width="240" height="240">
+          </div>
+          <div class="catalog-item__info">
+            <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
+            <p>Интернет-магазин с личным кабинетом</p>
+            <a href="#" class="catalog-item__btn btn">10000 р.</a>
+          </div>
+        </article>
+        <article class="catalog-item">
+          <div class="catalog-item__top">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+          <div class="catalog-item__img-wrapper">
+            <img src="img/catalog-item2.jpg" alt="Catalog-item2" width="240" height="240">
+          </div>
+          <div class="catalog-item__info">
+            <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
+            <p>Интернет-магазин с личным кабинетом</p>
+            <a href="#" class="catalog-item__btn btn">10000 р.</a>
+          </div>
+        </article>
+        <article class="catalog-item">
+          <div class="catalog-item__top">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+          <div class="catalog-item__img-wrapper">
+            <img src="img/catalog-item3.jpg" alt="Catalog-item3" width="240" height="240">
+          </div>
+          <div class="catalog-item__info">
+            <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
+            <p>Интернет-магазин с личным кабинетом</p>
+            <a href="#" class="catalog-item__btn btn">10000 р.</a>
+          </div>
+        </article>
+        <article class="catalog-item">
+          <div class="catalog-item__top">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+          <div class="catalog-item__img-wrapper">
+            <img src="img/catalog-item4.jpg" alt="Catalog-item4" width="240" height="240">
+          </div>
+          <div class="catalog-item__info">
+            <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
+            <p>Интернет-магазин с личным кабинетом</p>
+            <a href="#" class="catalog-item__btn btn">10000 р.</a>
+          </div>
+        </article>
+        <article class="catalog-item">
+          <div class="catalog-item__top">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+          <div class="catalog-item__img-wrapper">
+            <img src="img/catalog-item5.jpg" alt="Catalog-item5" width="240" height="240">
+          </div>
+          <div class="catalog-item__info">
+            <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
+            <p>Интернет-магазин с личным кабинетом</p>
+            <a href="#" class="catalog-item__btn btn">10000 р.</a>
+          </div>
+        </article>
+        <article class="catalog-item">
+          <div class="catalog-item__top">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+          <div class="catalog-item__img-wrapper">
+            <img src="img/catalog-item6.jpg" alt="Catalog-item6" width="240" height="240">
+          </div>
+          <div class="catalog-item__info">
+            <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
+            <p>Интернет-магазин с личным кабинетом</p>
+            <a href="#" class="catalog-item__btn btn">10000 р.</a>
+          </div>
+        </article>
+        <ul class="pagination">
+          <li class="pagination__item pagination__item--active">1</li>
+          <li class="pagination__item"><a href="#" class="pagination__link">2</a></li>
+          <li class="pagination__item"><a href="#" class="pagination__link">3</a></li>
+          <li class="pagination__item"><a href="#" class="pagination__link">Следующая</a></li>
+        </ul>
+      </div>
+      <div class="map">
+        <div class="contacts-banner">
+          <h3 class="contacts__caption">NЁRDS DESIGN STUDIO</h3>
+          <address class="contacts__contacts">
+            191186, Санкт-Петербург,<br>
+            ул. Б. Конюшенная, д. 19/8<br>
+            <span class="contacts__phone">тел. +7 (812) 275-75-75</span>
+          </address>
+          <a href="#" class="contacts__btn btn">Напишите нам</a>
+        </div>
+      </div>
+    </main>
+    <footer class="page-footer">
+      <div class="social cl">
+        <div class="social__icons">
+          <a href="#" class="social__btn btn">Vk</a>
+          <a href="#" class="social__btn btn">Facebook</a>
+          <a href="#" class="social__btn btn">Instagram</a>
+        </div>
+        <div class="social__text">
+          <div class="social__caption">Давайте дружить, это выгодно!</div>
+          <p>Скидка 10% для друзей из социальных сетей.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
