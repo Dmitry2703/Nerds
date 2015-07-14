@@ -1,54 +1,307 @@
-/*
-  VARIABLES
+/*------------------------------------*\
+    FONTS, ICON FONTS CONNECTION
+\*------------------------------------*/
+
+@font-face {
+  font-family: Roboto;
+  src: url('../fonts/Roboto-Medium/roboto-medium-webfont.eot');
+  src: local('Roboto Medium'), local('RobotoMedium'), 
+       url('../fonts/Roboto-Medium/roboto-medium-webfont.eot?#iefix') format('embedded-opentype'),  
+       url('../fonts/Roboto-Medium/roboto-medium-webfont.woff') format('woff'),
+       url('../fonts/Roboto-Medium/roboto-medium-webfont.woff2') format('woff2'), 
+       url('../fonts/Roboto-Medium/roboto-medium-webfont.ttf')  format('truetype'), 
+       url('../fonts/Roboto-Medium/roboto-medium-webfont.svg#Roboto-Medium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url('../fonts/Roboto-Bold/roboto-bold-webfont.eot');
+  src: local('Roboto Bold'), local('RobotoBold'), 
+       url('../fonts/Roboto-Bold/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),  
+       url('../fonts/Roboto-Bold/roboto-bold-webfont.woff') format('woff'),
+       url('../fonts/Roboto-Bold/roboto-bold-webfont.woff2') format('woff2'), 
+       url('../fonts/Roboto-Bold/roboto-bold-webfont.ttf')  format('truetype'), 
+       url('../fonts/Roboto-Bold/roboto-bold-webfont.svg#Roboto-Bold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* 
+    Icons
 */
+
+@charset "UTF-8";
+
+ @font-face {
+  font-family: 'symbols-nerds';
+  src: url('../fonts/Symbols/symbols-nerds.eot?27841936');
+  src: url('../fonts/Symbols/symbols-nerds.eot?27841936#iefix') format('embedded-opentype'),
+       url('../fonts/Symbols/symbols-nerds.woff?27841936') format('woff'),
+       url('../fonts/Symbols/symbols-nerds.ttf?27841936') format('truetype'),
+       url('../fonts/Symbols/symbols-nerds.svg?27841936#symbols-nerds') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'symbols-nerds';
+    src: url('../font/symbols-nerds.svg?27841936#symbols-nerds') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "symbols-nerds";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-basket:before { content: '\62'; } /* 'b' */
+.icon-facebook:before { content: '\66'; } /* 'f' */
+.icon-twitter:before { content: '\74'; } /* 't' */
+.icon-vk:before { content: '\76'; } /* 'v' */
+.icon-up-dir:before { content: '\25b2'; } /* '▲' */
+.icon-down-dir:before { content: '\25bc'; } /* '▼' */
+.icon-circle:before { content: '\25cb'; } /* '○' */
+.icon-circle-dot:before { content: '\25cf'; } /* '●' */
+.icon-check-off:before { content: '\2610'; } /* '☐' */
+.icon-check-on:before { content: '\2611'; } /* '☑' */
+.icon-instagramm:before { content: '📷'; } /* '\1f4f7' */
+
+/*------------------------------------*\
+    VARIABLES
+\*------------------------------------*/
 
 /* Colors */
 
+/* background */
 $color-bg: #fff;
 $color-bg-shade: #eee;
+$color-bg-primary: #fb565a;
+$color-bg-primary-hover: #d6494d;
+$color-bg-primary-active: #b63538;
+$color-bg-primary-shadow: #9b2d30;
+$color-bg-add1: #00ca74;
+$color-bg-add1-hover: #01a25e;
+$color-bg-add1-active: #009053;
+$color-bg-add1-shadow: #007b47;
+$color-bg-add2: #efc84a;
+$color-bg-add2-hover: #d6ae2c;
+$color-bg-add2-active: #c09b24;
+$color-bg-add2-shadow: #a3841f;
+$color-bg-social: #e1e1e1;
+
+/* text */
+
+$color-text: #000;
+$color-text-weak: #283136;
+$color-text-link: #fff;
+$color-text-muted: #666;
+$color-text-hover: #fb565a;
 
 /* Fonts */
 
-/*
-	HELPER CLASSES
-*/
+$font-family-text: Roboto, Arial, sans-serif;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-x-medium: 15px;
+$font-size-regular: 16px;
+$font-size-large: 18px;
+$font-size-x-large: 36px;
+$font-size--xx-large: 40px;
+
+/*------------------------------------*\
+    HELPER CLASSES
+\*------------------------------------*/
 
 .cl:after {
-	content: "";
+	content: '';
 	display: table;
 	clear: both;
 }
 
-/*
-	GRID
-*/
+/*------------------------------------*\
+    LAYOUT
+\*------------------------------------*/
 
 html, body { 
+  box-sizing: border-box;
 	width: 100%;
 	height: 100%;
+  min-width: 880px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 .page-wrapper {
-	width: 880px;
-	margin: 0 auto;
+	width: 100%;
   background: $color-bg;
 }
 
-/*------------------------------------*\
-    #HEADER
-\*------------------------------------*/
+.container {
+  width: 880px;
+  margin: 0 auto;
+}
 
 .page-header {
+  margin-bottom: 80px;
+  padding-top: 13px;
   background: $color-bg-shade;
 }
 
-.top-panel__logo {
-  float: left;
+.page-footer {
+  padding-top: 78px;
+  padding-bottom: 77px;
+}
+
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+
+body {
+  font-family: $font-family-text;
+  font-weight: 400;
+  font-size: $font-size-regular;
+  line-height: 22px;
+  color: $color-text-weak;
+}
+
+/*------------------------------------*\
+    BASE
+\*------------------------------------*/
+
+.link, .btn {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: $font-family-text;
+  font-weight: 700;
+  font-size: $font-size-small;
+  line-height: 18px;
+  color: $color-text-link;
+  text-align: center;
+  border-radius: 3px;
+  background-color: $color-bg-primary;
+
+  &:hover {
+    background-color: $color-bg-primary-hover;
+  }
+
+  &:active {
+    background-color: $color-bg-primary-active;
+    box-shadow: inset 0 6px 0 -3px $color-bg-primary-shadow;
+  }
+}
+
+.btn--add1 {
+  background-color: $color-bg-add1;
+
+  &:hover {
+    background-color: $color-bg-add1-hover;
+  }
+
+  &:active {
+    background-color: $color-bg-add1-active;
+    box-shadow: inset 0 6px 0 -3px $color-bg-add1-shadow;
+  }
+}
+
+.btn--add2 {
+  background-color: $color-bg-add2;
+
+  &:hover {
+    background-color: $color-bg-add2-hover;
+  }
+
+  &:active {
+    background-color: $color-bg-add2-active;
+    box-shadow: inset 0 6px 0 -3px $color-bg-add2-shadow;
+  }
+}
+
+.logo {
+  position: relative;
+  display: block;
+
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    margin: auto;
+  }
+}
+
+/*
+    Header
+*/
+
+.top-panel {
+  margin-bottom: 43px;
+
+  &__logo {
+    float: left;
+    width: 139px;
+    height: 56px;
+  }
+
+  &__link {
+    font-family: $font-family-text;
+    font-weight: 700;
+    font-size: $font-size-medium;
+    line-height: 30px;
+    color: $color-text;
+  }
 }
 
 .nav {
-  outline: 1px dotted red;
   float: right;
+  padding-top: 26px;
 
   &__list {
     margin: 0;
@@ -58,63 +311,273 @@ html, body {
 
   &__item {
     display: inline-block;
+
+    &--active {
+      position: relative;
+    }
   }
 
-  &__link {}
+  &__link {
+    padding: 7px 18px;
+
+    &:hover {
+      color: $color-text-hover;
+    }
+
+    &:active {
+      color: $color-text;
+      opacity: .4;
+    }
+
+    &--active::after {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background-color: $color-text-hover;
+    }
+  }
 }
 
 .cart {
   display: block;
   float: right;
-  margin-left: 60px;
-}
+  margin-top: 25px;
+  margin-left: 45px;
 
-.slider {
-  outline: 1px dotted red;
-  width: 880px;
-  height: 310px;
-  margin: 0 auto;
+  &:hover {
+      color: $color-text-hover;
+    }
 
-&__controls {}
+  &:active {
+      color: $color-text;
+      opacity: .4;
+    }
 
-&__control {}
+  i {
+    margin-right: 10px;
+    opacity: .3;
+  }
 
-&__control--active {}
+  &:hover i {
+    opacity: 1;
+  }
 
-&__slides {}
-
-&__slide {
-  display: none;
-}
-
-&__slide--active {
-  display: block;
-}
-
+  &:active i {
+    color: $color-text;
+    opacity: .4;
+  }
 }
 
 /*------------------------------------*\
-    #MAIN
+    INDEX.HTML
 \*------------------------------------*/
+
+.slider {
+  position: relative;
+  height: 310px;
+
+  &__input {
+    display: none;
+  }
+
+  &__controls {
+    position: absolute;
+    left: 50%;
+    bottom: 94px;
+    z-index: 10;
+    width: 200px;
+    height: 10px;
+    margin-left: -100px;
+    text-align: center;
+  }
+
+  &__control {
+    box-sizing: content-box;
+    display: inline-block;
+    vertical-align: top;
+    width: 4px;
+    height: 4px;
+    margin: 0 3px;
+    background-color: #fff;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__slides {}
+
+  &__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &:nth-child(1) {
+      background: $color-bg-shade url(../img/slide1.png) 100% 10px no-repeat;
+    }
+
+    &:nth-child(2) {
+      background: $color-bg-shade url(../img/slide2.png) 100% 10px no-repeat;
+    }
+
+    &:nth-child(3) {
+      background: $color-bg-shade url(../img/slide3.png) 100% 0 no-repeat;
+    }
+  }
+
+  &__text {
+      width: 540px;
+      padding-top: 30px;
+
+      p {
+        margin-bottom: 26px;
+      }
+    }
+
+  &__caption {
+    margin-bottom: 20px;
+    font-family: $font-family-text;
+    font-weight: 700;
+    font-size: $font-size-x-large;
+    line-height: 36px;
+    color: $color-text;
+  }
+
+  &__btn {
+    width: 240px;
+  }
+}
+
+/* Slider Toggle */
+
+/* changing position of toggle */
+#radio1:checked ~ .slider__controls label[for="radio1"],
+#radio2:checked ~ .slider__controls label[for="radio2"],
+#radio3:checked ~ .slider__controls label[for="radio3"] {
+  background-color: #c1c1c1;
+}
+
+/* changing slide */
+#radio1:checked ~ .slider__slides .slider__slide:nth-child(1) {
+  display: block;
+}
+
+#radio2:checked ~ .slider__slides .slider__slide:nth-child(2) {
+  display: block;
+}
+
+#radio3:checked ~ .slider__slides .slider__slide:nth-child(3) {
+  display: block;
+}
+
+/*
+    Main
+*/
+
+.services {
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: $color-bg-shade;
+  }
+}
 
 .service {
   float: left;
   width: 240px;
   margin-right: 80px;
+  margin-bottom: 80px;
 
   &:last-child {
     margin-right: 0;
   }
-}
 
-.about {
-  
-  &__main {
-    margin-right: 240px;
+  &__img-wrapper {
+    position: relative;
+    float: left;
+    width: 240px;
+    height: 124px;
+    margin-bottom: 23px;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      margin: auto;
+    }
   }
 
   &__caption {
+    margin-bottom: 14px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-size: $font-size-large;
+    line-height: 30px;
+    color: $color-text;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-bottom: 25px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-size: $font-size-x-medium;
+    line-height: 22px;
+    color: $color-text-weak;
+  }
+
+  &__btn {
+    width: 140px;
+  }
+}
+
+.about {
+  padding-top: 59px;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: $color-bg-shade;
+  }
   
+  &__main {
+    margin-right: 280px;
+  }
+
+  &__caption {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: $font-family-text;
+    font-weight: 700;
+    font-size: $font-size-x-large;
+    line-height: 36px;
+    color: $color-text;
+  }
+
+  p {
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-size: $font-size-regular;
+    line-height: 22px;
+    color: $color-text-weak;
   }
 
   &__aside {
@@ -122,53 +585,262 @@ html, body {
     width: 240px;
   }
 
-  &__logo {}
+  &__logo {
+    position: relative;
+    left: 4px;
+    width: 187px;
+    height: 75px;
+    margin: 0 auto;
+    margin-bottom: 26px;
+  }
 
+  &__logo-text {
+    margin-bottom: 64px;
+    text-align: center;
+
+    span {
+      position: relative;
+      z-index: 10;
+      padding-left: 14px;
+      padding-right: 14px;
+      background-color: $color-bg;
+      font-family: $font-family-text;
+      font-weight: 400;
+      font-size: $font-size-regular;
+      line-height: 22px;
+      color: $color-text-weak;
+    }
+
+    &::after {
+      content: '';
+      position: relative;
+      top: -12px;
+      z-index: 1;
+      display: block;
+      border-bottom: 2px solid $color-bg-shade;
+    }
+  }
+}
+
+.list {
+  margin-top: 42px;
+  margin-bottom: 75px;
+
+  &__caption {
+    margin-bottom: 26px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-size: $font-size-regular;
+    line-height: 22px;
+    color: $color-text-weak;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    position: relative;
+    margin-left: 37px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-size: $font-size-regular;
+    line-height: 16px;
+    color: $color-text;
+  }
+
+  &__item + &__item {
+    margin-top: 27px;
+  }
+
+  &__item::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: -37px;
+    width: 25px;
+    height: 2px;
+    background-color: $color-bg-primary;
+  }
+}
+
+.clients {
+  padding-top: 37px;
+  margin-bottom: 85px;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $color-bg-shade;
+  }
 }
 
 .client {
-  float: left;
+  position: relative;
+  left: -10px;
+  display: inline-block;
+  vertical-align: middle;
   width: 240px;
-  margin-right: 80px;
+  margin-right: 76px;
+  margin-bottom: 33px;
+  text-align: center;
 
   &:last-child {
     margin-right: 0;
   }
+
+  &__link {
+    display: inline-block;
+    background: $color-bg url(../img/sprite-clients-set.png) 0 0 no-repeat;
+    font-size: 0;
+    opacity: .2;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__link1 {
+    width: 198px;
+    height: 37px;
+    background-position: -5px -5px;
+  }
+
+  &__link2 {
+    width: 199px;
+    height: 68px;
+    background-position: -5px -52px;
+  }
+
+  &__link3 {
+    width: 209px;
+    height: 90px;
+    background-position: -5px -130px;
+  }
 }
+
+.map {
+  height: 416px;
+  padding-top: 88px;
+  background: #e9e5dc url(../img/map.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.contacts {
+  width: 250px;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  padding-left: 22px;
+  padding-right: 23px;
+  background-color: $color-bg;
+
+  &__caption {
+    margin: 0;
+    margin-bottom: 10px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-size: $font-size-regular;
+    line-height: 30px;
+    color: $color-text;
+    text-transform: uppercase;
+  }
+
+  &__address {
+    margin-bottom: 30px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-regular;
+    line-height: 20px;
+    color: $color-text-muted;
+  }
+
+  &__phone {
+    margin-top: 20px;
+  }
+
+  &__btn {
+    width: 204px;
+  }
+}
+
 
 .popup {
   display: none;
 }
 
-/*------------------------------------*\
-    #FOOTER
-\*------------------------------------*/
-
+/*
+    Footer
+*/
 
 .social {
 
   &__icons {
     float: left;
-    width: 240px;
   }
 
   &__btn {
+    display: inline-block;
+    vertical-align: middle;
+    width: 62px;
+    height: 62px;
+    margin-right: 23px;
+    border-radius: 50%;
+    background-color: $color-bg-social;
+    font-size: 0;
+    line-height: 40px;
+    text-align: center;
 
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: $color-bg-primary;
+    }
+
+    &:active {
+      background-color: $color-bg-primary-hover;
+    }
+
+    i {
+      font-size: 23px;
+    }
   }
 
   &__text {
-    margin-left: 240px;
+    margin-left: 320px;
+
+    p {
+      margin: 0;
+      font-family: $font-family-text;
+      font-weight: 400;
+      font-size: $font-size-regular;
+      line-height: 22px;
+      color: $color-text-weak;
+    }
   }
 
   &__caption {
-
+    margin: 0;
+    margin-bottom: 5px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-size: $font-size-x-large;
+    line-height: 36px;
+    color: $color-text;
   }
 
 }
 
-/*
-  CATALOG.HTML
-*/
+/*------------------------------------*\
+    CATALOG.HTML
+\*------------------------------------*/
 
 .form {
   float: left;
