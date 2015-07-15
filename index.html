@@ -142,7 +142,8 @@
           </div>
         </div>
       </div>
-      <div class="map">
+      <div class="contacts-wrapper">
+        <div id="map-canvas" class="map"></div>
         <div class="container">
           <div class="contacts">
             <h3 class="contacts__caption">NЁRDS DESIGN STUDIO</h3>
@@ -151,22 +152,32 @@
               ул. Б. Конюшенная, д. 19/8<br>
               <div class="contacts__phone">тел. +7 (812) 275-75-75</div>
             </address>
-            <a href="#" class="contacts__btn btn">Напишите нам</a>
+            <a href="feedback.html" class="contacts__btn btn js-contacts__btn">Напишите нам</a>
           </div>
         </div>
       </div>
-      <div class="popup">
-        <div class="popup__close"></div>
-        <form class="popup__form" action="/" method="post">
-          <label class="popup__label" for="name">Ваше имя:</label>
-          <input id="name" class="popup__input" type="text" name="name" placeholder="представьтесь, пожалуйста">
-          <label class="popup__label" for="email">Ваш e-mail:</label>
-          <input id="email" class="popup__input" type="email" name="email" placeholder="для отправки ответа">
-          <label for="textarea">Текст письма:</label>
-          <textarea id="textarea" name="message" placeholder="в свободной форме"></textarea>
-          <button class="popup__btn btn" type="submit">Отправить</button>
-          <button class="popup__btn popup__btn--cancel btn">Отмена</button>
-        </form>
+      <div class="popup js-popup">
+        <div class="popup__container">
+          <div class="popup__close js-popup__close" title="Закрыть"></div>
+          <form class="popup__form js-popup__form" action="/" method="post">
+            <div class="popup__row">
+              <div class="popup__column">
+                <label class="popup__label" for="name">Ваше имя:</label>
+                <input id="name" class="popup__input" type="text" name="login" placeholder="представьтесь, пожалуйста" required>
+              </div>
+              <div class="popup__column">
+                <label class="popup__label" for="email">Ваш e-mail:</label>
+                <input id="email" class="popup__input" type="email" name="email" placeholder="для отправки ответа" required>
+              </div>
+            </div>
+            <div class="popup__row">
+              <label class="popup__label" for="textarea">Текст письма:</label>
+              <textarea id="textarea" class="popup__textarea" name="message" placeholder="в свободной форме"></textarea>
+            </div>
+            <button class="popup__btn btn" type="submit">Отправить</button>
+            <button class="popup__btn btn btn--add3 js-popup__cancel">Отмена</button>
+          </form>
+        </div>
       </div>
     </main>
     <footer class="page-footer">
@@ -185,5 +196,7 @@
       </div>
     </footer>
   </div>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBVgf3xfFdFI0P6dG-MR2WP3HjLx6Be1Zo&amp;sensor=false"></script>
+  <script src="js/scripts.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nerds</title>
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script>
+    var html = document.documentElement;
+    html.className = html.className.replace("no-js", "js");
+  </script>
+</head>
+<body>
+	<div class="page-wrapper">
+    <header class="page-header page-header--inner">
+      <div class="container">
+        <div class="top-panel cl">
+          <a href="index.html" class="top-panel__logo logo">
+            <img src="img/logo.png" alt="Nerds" width="139" height="56">
+          </a>
+          <a href="#" class="top-panel__link link cart"><i class="icon-basket"></i>Корзина</a>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item nav__item--active">
+                <a href="index.html" class="top-panel__link nav__link link">Студия</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="top-panel__link nav__link link">Клиенты</a>
+              </li>
+              <li class="nav__item">
+                <a href="catalog.html" class="top-panel__link nav__link link">Магазин</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="top-panel__link nav__link link">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="page-header__caption">Напишите нам</div>
+      </div>
+    </header>
+    <main class="page-content">
+      <div class="popup popup--no-js">
+        <div class="popup__container">
+          <form class="popup__form js-popup__form" action="/" method="post">
+            <div class="popup__row">
+              <div class="popup__column">
+                <label class="popup__label" for="name">Ваше имя:</label>
+                <input id="name" class="popup__input" type="text" name="login" placeholder="представьтесь, пожалуйста" required>
+              </div>
+              <div class="popup__column">
+                <label class="popup__label" for="email">Ваш e-mail:</label>
+                <input id="email" class="popup__input" type="email" name="email" placeholder="для отправки ответа" required>
+              </div>
+            </div>
+            <div class="popup__row">
+              <label class="popup__label" for="textarea">Текст письма:</label>
+              <textarea id="textarea" class="popup__textarea" name="message" placeholder="в свободной форме"></textarea>
+            </div>
+            <button class="popup__btn btn" type="submit">Отправить</button>
+            <button class="popup__btn btn btn--add3 js-popup__cancel">Отмена</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="social cl">
+          <div class="social__icons">
+            <a href="#" class="social__btn btn"><i class="icon-vk"></i>Vk</a>
+            <a href="#" class="social__btn btn"><i class="icon-facebook"></i>Facebook</a>
+            <a href="#" class="social__btn btn"><i class="icon-instagramm"></i>Instagram</a>
+          </div>
+          <div class="social__text">
+            <div class="social__caption">Давайте дружить, это выгодно!</div>
+            <p>Скидка 10% для друзей из социальных сетей.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
