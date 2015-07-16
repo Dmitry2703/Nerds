@@ -53,50 +53,54 @@
                 <div class="filter__toggle filter__toggle--min"></div>
                 <div class="filter__toggle filter__toggle--max"></div>
               </div>
-              <div class="filter__price-controls">
-                <label class="filter__text" for="text-item1">от</label>
-                <input id="text-item1" class="form__input" type="text" placeholder="0">
-                <label class="filter__text" for="text-item2">до</label>
-                <input id="text-item2" class="form__input" type="text" placeholder="15000">
+              <div class="filter__price-controls cl">
+                <div class="filter__price-column">
+                  <label class="filter__label" for="text-item1">от</label>
+                  <input id="text-item1" class="filter__input" type="text" value="0">
+                </div>
+                <div class="filter__price-column">
+                  <label class="filter__label" for="text-item2">до</label>
+                  <input id="text-item2" class="filter__input" type="text" value="15000">
+                </div>
               </div>
             </div>
           </fieldset>
           <fieldset class="form__fieldset">
             <legend class="form__caption">Сетка:</legend>
             <input id="radio-item1" class="form__radio" type="radio" name="radio-item" value="radio-item1" checked>
-            <label for="radio-item1">Адаптивная</label>
-            <input id="radio-item2" class="form__radio" type="radio" name="radio-item" value="radio-item2">
-            <label for="radio-item2">Фиксированная</label>
+            <label for="radio-item1" class="form__label">Адаптивная</label>
+            <input id="radio-item2" class="form__radio" type="radio" name="radio-item" value="radio-item2" disabled>
+            <label for="radio-item2" class="form__label">Фиксированная</label>
             <input id="radio-item3" class="form__radio" type="radio" name="radio-item" value="radio-item3">
-            <label for="radio-item3">Резиновая</label>
+            <label for="radio-item3" class="form__label">Резиновая</label>
           </fieldset>
           <fieldset class="form__fieldset">
             <legend class="form__caption">Особенности:</legend>
             <input id="checkbox-item1" class="form__checkbox" type="checkbox" name="checkbox-item1" checked>
-            <label for="checkbox-item1">Слайдер</label>
-            <input id="checkbox-item2" class="form__checkbox" type="checkbox" name="checkbox-item2">
-            <label for="checkbox-item2">Блок преимуществ</label>
+            <label for="checkbox-item1" class="form__label form__label--checkbox">Слайдер</label>
+            <input id="checkbox-item2" class="form__checkbox" type="checkbox" name="checkbox-item2" disabled>
+            <label for="checkbox-item2" class="form__label form__label--checkbox">Блок преимуществ</label>
             <input id="checkbox-item3" class="form__checkbox" type="checkbox" name="checkbox-item3" checked>
-            <label for="checkbox-item3">Новости</label>
+            <label for="checkbox-item3" class="form__label form__label--checkbox">Новости</label>
             <input id="checkbox-item4" class="form__checkbox" type="checkbox" name="checkbox-item4">
-            <label for="checkbox-item4">Галерея</label>
+            <label for="checkbox-item4" class="form__label form__label--checkbox">Галерея</label>
             <input id="checkbox-item5" class="form__checkbox" type="checkbox" name="checkbox-item5">
-            <label for="checkbox-item5">Корзина</label>
+            <label for="checkbox-item5" class="form__label form__label--checkbox">Корзина</label>
           </fieldset>
-          <button class="form__btn btn" type="submit">Показать</button>
+          <button class="form__btn btn btn--add3" type="submit">Показать</button>
         </form>
         <div class="catalog">
           <div class="sorting">
-            <span class="sorting__caption">сортировать:</span>
+            <div class="sorting__caption">сортировать:</div>
+            <div class="sorting__arrows">
+              <a href="#" class="sorting__arrow sorting__arrow--active icon-down-dir text-hide">вниз</a>
+              <a href="#" class="sorting__arrow icon-up-dir text-hide">вверх</a>
+            </div>
             <ul class="sorting__list">
               <li class="sorting__item"><a href="#" class="sorting__link link">по цене</a></li>
               <li class="sorting__item"><a href="#" class="sorting__link link">по типу</a></li>
               <li class="sorting__item"><a href="#" class="sorting__link link">по функционалу</a></li>
             </ul>
-            <div class="sorting__arrows">
-              <a href="#" class="sorting__arrow sorting__arrow--active icon-down-dir text-hide">вниз</a>
-              <a href="#" class="sorting__arrow icon-up-dir text-hide">вверх</a>
-            </div>
           </div>
           <article class="catalog-item">
             <div class="catalog-item__top">
@@ -108,8 +112,8 @@
               <img src="img/catalog-item1.jpg" alt="Catalog-item1" width="240" height="240">
             </div>
             <div class="catalog-item__info">
-              <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
-              <p>Интернет-магазин с личным кабинетом</p>
+              <h3 class="catalog-item__caption"><a href="#" class="catalog-item__link link">SUNSET</a></h3>
+              <p>Интернет-магазин<br>с личным кабинетом</p>
               <a href="#" class="catalog-item__btn btn">10000 р.</a>
             </div>
           </article>
@@ -123,8 +127,8 @@
               <img src="img/catalog-item2.jpg" alt="Catalog-item2" width="240" height="240">
             </div>
             <div class="catalog-item__info">
-              <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
-              <p>Интернет-магазин с личным кабинетом</p>
+              <h3 class="catalog-item__caption"><a href="#" class="catalog-item__link link">SUNSET</a></h3>
+              <p>Интернет-магазин<br>с личным кабинетом</p>
               <a href="#" class="catalog-item__btn btn">10000 р.</a>
             </div>
           </article>
@@ -138,8 +142,8 @@
               <img src="img/catalog-item3.jpg" alt="Catalog-item3" width="240" height="240">
             </div>
             <div class="catalog-item__info">
-              <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
-              <p>Интернет-магазин с личным кабинетом</p>
+              <h3 class="catalog-item__caption"><a href="#" class="catalog-item__link link">SUNSET</a></h3>
+              <p>Интернет-магазин<br>с личным кабинетом</p>
               <a href="#" class="catalog-item__btn btn">10000 р.</a>
             </div>
           </article>
@@ -153,8 +157,8 @@
               <img src="img/catalog-item4.jpg" alt="Catalog-item4" width="240" height="240">
             </div>
             <div class="catalog-item__info">
-              <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
-              <p>Интернет-магазин с личным кабинетом</p>
+              <h3 class="catalog-item__caption"><a href="#" class="catalog-item__link link">SUNSET</a></h3>
+              <p>Интернет-магазин<br>с личным кабинетом</p>
               <a href="#" class="catalog-item__btn btn">10000 р.</a>
             </div>
           </article>
@@ -168,8 +172,8 @@
               <img src="img/catalog-item5.jpg" alt="Catalog-item5" width="240" height="240">
             </div>
             <div class="catalog-item__info">
-              <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
-              <p>Интернет-магазин с личным кабинетом</p>
+              <h3 class="catalog-item__caption"><a href="#" class="catalog-item__link link">SUNSET</a></h3>
+              <p>Интернет-магазин<br>с личным кабинетом</p>
               <a href="#" class="catalog-item__btn btn">10000 р.</a>
             </div>
           </article>
@@ -183,28 +187,60 @@
               <img src="img/catalog-item6.jpg" alt="Catalog-item6" width="240" height="240">
             </div>
             <div class="catalog-item__info">
-              <h3 class="catalog-item__caption"><a href="#">SUNSET</a></h3>
-              <p>Интернет-магазин с личным кабинетом</p>
+              <h3 class="catalog-item__caption"><a href="#" class="catalog-item__link link">SUNSET</a></h3>
+              <p>Интернет-магазин<br>с личным кабинетом</p>
               <a href="#" class="catalog-item__btn btn">10000 р.</a>
             </div>
           </article>
           <ul class="pagination">
             <li class="pagination__item pagination__item--active">1</li>
-            <li class="pagination__item"><a href="#" class="pagination__link">2</a></li>
-            <li class="pagination__item"><a href="#" class="pagination__link">3</a></li>
-            <li class="pagination__item"><a href="#" class="pagination__link">Следующая</a></li>
+            <li class="pagination__item">
+              <a href="#" class="pagination__link link">2</a>
+            </li>
+            <li class="pagination__item">
+              <a href="#" class="pagination__link link">3</a>
+            </li>
+            <li class="pagination__item">
+              <a href="#" class="pagination__link pagination__link--next link">Следующая</a>
+            </li>
           </ul>
         </div>
-        <div class="map">
-          <div class="contacts-banner">
+      </div>
+      <div class="contacts-wrapper">
+        <div id="map-canvas" class="map"></div>
+        <div class="container">
+          <div class="contacts">
             <h3 class="contacts__caption">NЁRDS DESIGN STUDIO</h3>
-            <address class="contacts__contacts">
+            <address class="contacts__address">
               191186, Санкт-Петербург,<br>
               ул. Б. Конюшенная, д. 19/8<br>
-              <span class="contacts__phone">тел. +7 (812) 275-75-75</span>
+              <div class="contacts__phone">тел. +7 (812) 275-75-75</div>
             </address>
-            <a href="#" class="contacts__btn btn">Напишите нам</a>
+            <a href="feedback.html" class="contacts__btn btn js-contacts__btn">Напишите нам</a>
           </div>
+        </div>
+      </div>
+      <div class="popup js-popup">
+        <div class="popup__container">
+          <div class="popup__close js-popup__close" title="Закрыть"></div>
+          <form class="popup__form js-popup__form" action="/" method="post">
+            <div class="popup__row">
+              <div class="popup__column">
+                <label for="name" class="popup__label">Ваше имя:</label>
+                <input id="name" class="popup__input" type="text" name="login" placeholder="представьтесь, пожалуйста" required>
+              </div>
+              <div class="popup__column">
+                <label for="email" class="popup__label">Ваш e-mail:</label>
+                <input id="email" class="popup__input" type="email" name="email" placeholder="для отправки ответа" required>
+              </div>
+            </div>
+            <div class="popup__row">
+              <label for="textarea" class="popup__label">Текст письма:</label>
+              <textarea id="textarea" class="popup__textarea" name="message" placeholder="в свободной форме"></textarea>
+            </div>
+            <button class="popup__btn btn" type="submit">Отправить</button>
+            <button class="popup__btn btn btn--add3 js-popup__cancel">Отмена</button>
+          </form>
         </div>
       </div>
     </main>
@@ -224,5 +260,7 @@
       </div>
     </footer>
   </div>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBVgf3xfFdFI0P6dG-MR2WP3HjLx6Be1Zo&amp;sensor=false"></script>
+  <script src="js/scripts.min.js"></script>
 </body>
 </html>

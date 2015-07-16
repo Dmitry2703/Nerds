@@ -112,6 +112,7 @@
 $color-bg: #fff;
 $color-bg-shade: #eee;
 $color-bg-primary: #fb565a;
+$color-bg-muted: #f1f1f1;
 $color-bg-primary-hover: #d6494d;
 $color-bg-primary-active: #b63538;
 $color-bg-primary-shadow: #9b2d30;
@@ -128,6 +129,9 @@ $color-bg-add3-hover: #e5e5e5;
 $color-bg-add3-active: #d5d5d5;
 $color-bg-add3-shadow: #b5b5b5;
 $color-bg-social: #e1e1e1;
+$color-bg-action: #c1c1c1;
+$color-bg-action-hover: #b5b5b5;
+$color-bg-action-disabled: #eaeaea;
 
 /* text */
 
@@ -135,7 +139,9 @@ $color-text: #000;
 $color-text-weak: #283136;
 $color-text-link: #fff;
 $color-text-muted: #666;
+$color-text-muted2: #cacaca;
 $color-text-hover: #fb565a;
+$color-text-link-underline: #00ca74;
 
 /* Fonts */
 
@@ -160,6 +166,10 @@ $font-size-xx-large: 40px;
 	content: '';
 	display: table;
 	clear: both;
+}
+
+.text-hide {
+  overflow: hidden;
 }
 
 
@@ -194,13 +204,16 @@ html, body {
 }
 
 .page-header {
-  margin-bottom: 80px;
   padding-top: 13px;
   background: $color-bg-shade;
 
   &--inner {
-    padding-bottom: 90px;
+    padding-bottom: 85px;
   }
+}
+
+.page-content {
+  padding-top: 80px;
 }
 
 .page-footer {
@@ -239,8 +252,7 @@ body {
 
 .btn {
   display: block;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   font-family: $font-family-text;
   font-weight: 700;
   font-size: $font-size-small;
@@ -249,6 +261,7 @@ body {
   text-align: center;
   border-radius: 3px;
   background-color: $color-bg-primary;
+  white-space: nowrap;
 
   &:hover {
     background-color: $color-bg-primary-hover;
@@ -319,6 +332,17 @@ body {
   }
 }
 
+.page-header__caption {
+  margin-top: 64px;
+  font-family: $font-family-text;
+  font-weight: 400;
+  font-size: $font-size-xx-large;
+  line-height: 48px;
+  color: $color-text;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 /*
     Header
 */
@@ -342,7 +366,8 @@ body {
 }
 
 .nav {
-  float: right;
+  margin-left: 320px;
+  margin-right: 120px;
   padding-top: 26px;
 
   &__list {
@@ -385,10 +410,11 @@ body {
 }
 
 .cart {
-  display: block;
   float: right;
+  display: block;
+  width: 120px;
   margin-top: 25px;
-  margin-left: 45px;
+  text-align: right;
 
   &:hover {
       color: $color-text-hover;
@@ -422,6 +448,7 @@ body {
 
   &__icons {
     float: left;
+    width: 260px;
   }
 
   &__btn {
@@ -430,13 +457,14 @@ body {
     width: 62px;
     height: 62px;
     margin-right: 23px;
+    margin-bottom: 20px;
     border-radius: 50%;
     background-color: $color-bg-social;
     font-size: 0;
     line-height: 40px;
     text-align: center;
 
-    &:last-child {
+    &:nth-of-type(3n) {
       margin-right: 0;
     }
 
@@ -1078,59 +1106,501 @@ body {
     CATALOG.HTML
 \*------------------------------------*/
 
-.page-header__caption {
-  font-family: $font-family-text;
-  font-weight: 400;
-  font-size: $font-size-xx-large;
-  line-height: 40px;
-  color: $color-text;
-  text-transform: uppercase;
-  text-align: center;
-}
+/* Filter Form */
 
 .form {
+  position: relative;
+  top: -8px;
   float: left;
   width: 240px;
+  overflow: hidden;
+
+  &__fieldset {
+    margin: 0;
+    margin-bottom: 45px;
+    padding: 0;
+    border: none;
+
+    &:last-of-type {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__caption {
+    margin: 0;
+    margin-bottom: 15px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-large;
+    line-height: 30px;
+    color: $color-text;
+    text-transform: uppercase;
+  }
+
+  &__label {
+    position: relative;
+    display: block;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-regular;
+    line-height: 20px;
+    color: $color-text-weak;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* Passive radio */
+    &::before {
+      content: '\25cb';
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: "symbols-nerds";
+      font-size: 28px;
+      color: $color-bg-action;
+    }
+
+    /* Passive checkbox */
+    &--checkbox {
+      &::before {
+      content: '\2610';
+      }
+    }
+  }
+
+  &__radio {
+    display: none;
+
+    &:checked + .form__label:active::before { /* Active radio becomes passive at the same time when click on label */
+      @extend .form__label::before;
+    }
+
+    &:checked + .form__label::before, /* Active radio */
+    & + .form__label:active::before { /* Passive radio becomes active when click on label */
+      content: '\25cf';
+    }
+
+    & + .form__label:hover { /* Changing color of label */
+      cursor: pointer;
+      color: $color-text;
+    }
+
+    & + .form__label:hover::before { /* Changing color of radio */
+      cursor: pointer;
+      color: $color-bg-action-hover;
+    }
+
+    &:disabled + .form__label { /* Changing color of label */
+      cursor: default;
+      color: #bdbfc0;
+    }
+
+    &:disabled + .form__label::before { /* Changing color of radio */
+      content: '\25cb';
+      cursor: default;
+      color: $color-bg-action-disabled;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked + .form__label:active::before { /* Active checkbox becomes passive at the same time when click on label */
+      @extend .form__label::before;
+    }
+
+    &:checked + .form__label::before, /* Active checkbox */
+    & + .form__label:active::before { /* Passive checkbox becomes active when click on label */
+      content: '\2611';
+    }
+
+    & + .form__label:hover { /* Changing color of label */
+      cursor: pointer;
+      color: $color-text;
+    }
+
+    & + .form__label:hover::before { /* Changing color of checkbox */
+      cursor: pointer;
+      color: $color-bg-action-hover;
+    }
+
+    &:disabled + .form__label { /* Changing color of label */
+      cursor: default;
+      color: #bdbfc0;
+    }
+
+    &:disabled + .form__label::before { /* Changing color of checkbox */
+      content: '\2610';
+      cursor: default;
+      color: $color-bg-action-disabled;
+    }
+  }
+
+  &__btn {
+    width: 153px;
+    border: none;
+    outline: none;
+  }
 }
+
+/* Price Filter */
+
+.filter {
+  width: 240px;
+
+  &__range-controls {
+    position: relative;
+    height: 80px;
+    margin-bottom: 14px;
+    padding: 0 30px;
+    background-color: $color-bg-muted;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  &__scale {
+    height: 2px;
+    margin-top: 39px;
+    background-color: #d7dcde;
+  }
+
+  &__bar {
+    width: 70%;
+    height: 2px;
+    background-color: #00ca74;
+  }
+
+  &__toggle {
+    box-sizing: content-box;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: 4px;
+    height: 4px;
+    border: 8px solid #fff;
+    background-color: #ababab;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 0 0 rgba(0, 1, 1, .14);
+  }
+
+  &__toggle--min {}
+
+  &__toggle--max {
+    left: 160px;
+  }
+
+  &__price-controls {}
+
+  &__price-column {
+    &:first-child {
+      float: left;
+    }
+
+    &:last-child {
+      float: right;
+    }
+  }
+
+  &__label {
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-regular;
+    line-height: 22px;
+    color: $color-text-weak;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    @extend .filter__label;
+    width: 80px;
+    margin-left: 7px;
+    padding: 8px 5px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background-color: $color-bg-muted;
+    text-align: center;
+  }
+}
+
+/* Catalog */
 
 .catalog {
-  margin-left: 240px;
+  margin-left: 320px;
+  font-size: 0;
 }
 
-.sorting {
-  &__caption {
+/* Sorting Row */
 
+.sorting {
+  margin-bottom: 13px;
+  font-size: 0;
+
+  &__caption {
+    float: left;
+    width: 110px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-small;
+    line-height: 18px;
+    color: $color-text;
+    text-transform: uppercase;
+    overflow: hidden;
   }
 
   &__list {
     margin: 0;
+    margin-left: 128px;
+    margin-right: 60px;
     padding: 0;
     list-style: none;
   }
 
   &__item {
     display: inline-block;
+    vertical-align: top;
+    margin-right: 46px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
-  &__link {}
+  &__link {
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-small;
+    line-height: 18px;
+    color: $color-text-muted2;
+    border-bottom: 1px dotted $color-text-link-underline;
+
+    &:hover {
+      color: $color-text;
+      border-bottom: 1px solid $color-text-link-underline;
+    }
+
+    &:active {
+      color: $color-text;
+      border: none;
+    }
+  }
 
   &__arrows {
-    display: inline-block;
+    position: relative;
+    float: right;
+    width: 50px;
+    text-align: right;
   }
 
-  &__arrow {}
+  &__arrow {
+    position: absolute;
+    top: -5px;
+    right: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 23px;
+    height: 23px;
+    font-size: 23px;
+    text-decoration: none;
+    color: $color-text-muted2;
 
-  &__arrow--active {}
+    &:last-child {
+      top: -5px;
+      right: 0;
+    }
 
+    &:hover {
+      color: $color-bg-action-hover;
+    }
+
+    &:active {
+      color: $color-text;
+    }
+  }
+
+  &__arrow--active {
+    color: $color-text-link-underline;
+  }
 }
 
+/* Catalog Item */
+
 .catalog-item {
+  position: relative;
   display: inline-block;
   width: 240px;
+  margin-bottom: 80px;
   margin-right: 80px;
 
   &:nth-child(odd) {
     margin-right: 0;
   }
+
+  &:hover &__top {
+    background-color: #797979;
+  }
+
+  &:hover &__info {
+    display: block;
+  }
+
+  &__top {
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 12px;
+    background-color: $color-bg-muted;
+    border-radius: 4px 4px 0 0;
+    font-size: 0;
+
+    i {
+      display: inline-block;
+      vertical-align: top;
+      width: 10px;
+      height: 10px;
+      margin-right: 7px;
+      border-radius: 50%;
+      background-color: $color-bg;
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+    display: block;
+    width: 240px;
+    height: 240px;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      margin: auto;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    display: none;
+    width: 200px;
+    height: 200px;
+    padding-top: 33px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: $color-bg;
+    text-align: center;
+  }
+
+  &__caption {
+    margin: 0;
+    margin-bottom: 15px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-large;
+    line-height: 24px;
+    color: $color-text;
+  }
+
+  &__link {
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-large;
+    line-height: 24px;
+    color: $color-text;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 30px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-medium;
+    line-height: 18px;
+    color: $color-text-weak;
+  }
+
+  &__btn {
+    width: 140px;
+  }
 }
 
+/* Pagination */
+
+.pagination {
+  margin: 0;
+  margin-bottom: 79px;
+  padding: 0;
+  list-style: none;
+  font-size: 0;
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 38px;
+    height: 38px;
+    margin-right: 10px;
+    background-color: $color-bg-muted;
+    border-radius: 4px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-small;
+    line-height: 38px;
+    color: $color-text;
+    text-align: center;
+
+    &:hover {
+      background-color: $color-bg-add3-hover;
+    }
+
+    &:active {
+      background-color: $color-bg-add3-active;
+      box-shadow: inset 0 6px 0 -3px $color-bg-add3-shadow;
+    }
+
+    &--active {
+      background-color: $color-bg;
+      border: 2px solid $color-bg-muted;
+      line-height: 34px;
+
+      &:hover, &:active {
+        background-color: $color-bg;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__link {
+    padding: 10px 8px;
+    font-family: $font-family-text;
+    font-weight: 400;
+    font-style: normal;
+    font-size: $font-size-small;
+    line-height: 18px;
+    color: $color-text;
+
+    &--next {
+      padding-left: 31px;
+      padding-right: 31px;
+    }
+  }
+}
