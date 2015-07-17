@@ -40,10 +40,12 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById("map-canvas"),
       mapOptions);
+  var image = "./img/marker.png";
   var myLatLng = new google.maps.LatLng(59.93887,30.3231);
   var beachMarker = new google.maps.Marker( {
     position: myLatLng,
-    map: map
+    map: map,
+    icon: image
   });
 }
 
