@@ -1,3 +1,47 @@
+/**
+   ----- CONTENTS -----
+ *
+ * ICON FONTS CONNECTION
+ *
+ * VARIABLES
+ *
+ * HELPER CLASSES
+ *
+ * LAYOUT
+ *
+ * TYPOGRAPHY
+ *
+ * BASE
+ * --- Links
+ * --- Buttons
+ * --- Logo
+ * --- Header
+ * --- Footer
+ *
+ * INDEX.HTML
+ * --- Slider
+ * --- Section Services
+ * --- Section About
+ * --- List
+ * --- Section Clients
+ * --- Section Contacts
+ * --- Animation for Popup Appearance
+ * --- Popup Form
+ *
+ * CATALOG.HTML
+ * --- Filter Form
+ * --- Price Filter
+ * --- Section Catalog
+ * --- Sorting Row
+ * --- Catalog Item
+ * --- Pagination
+ *
+ */
+
+
+
+
+
 /*------------------------------------*\
     ICON FONTS CONNECTION
 \*------------------------------------*/
@@ -104,7 +148,6 @@ $color-bg-action-hover: #b5b5b5;
 $color-bg-action-disabled: #eaeaea;
 
 /* text */
-
 $color-text: #000;
 $color-text-weak: #283136;
 $color-text-link: #fff;
@@ -165,7 +208,7 @@ html, body {
 
 .page-wrapper {
 	width: 100%;
-  background: $color-bg;
+  background-color: $color-bg;
 }
 
 .container {
@@ -175,7 +218,7 @@ html, body {
 
 .page-header {
   padding-top: 13px;
-  background: $color-bg-shade;
+  background-color: $color-bg-shade;
 
   &--inner {
     padding-bottom: 85px;
@@ -215,13 +258,16 @@ body {
     BASE
 \*------------------------------------*/
 
+/* Links */
 .link, .btn {
   text-decoration: none;
   text-transform: uppercase;
 }
 
+/* Buttons */
 .btn {
   display: inline-block;
+  vertical-align: middle;
   padding: 10px;
   font-family: $font-family-text;
   font-weight: 500;
@@ -282,6 +328,7 @@ body {
   }
 }
 
+/* Logo */
 .logo {
   position: relative;
   display: block;
@@ -421,8 +468,6 @@ body {
   }
 
   &__btn {
-    display: inline-block;
-    vertical-align: middle;
     width: 62px;
     height: 62px;
     margin-right: 23px;
@@ -740,7 +785,7 @@ body {
 
 .list {
   margin-top: 42px;
-  margin-bottom: 75px;
+  margin-bottom: 73px;
 
   &__caption {
     margin-bottom: 26px;
@@ -786,7 +831,7 @@ body {
 /* Section Clients */
 
 .clients {
-  padding-top: 37px;
+  padding-top: 45px;
   margin-bottom: 85px;
 
   &::after {
@@ -805,7 +850,7 @@ body {
   vertical-align: middle;
   width: 240px;
   margin-right: 76px;
-  margin-bottom: 33px;
+  margin-bottom: 30px;
   text-align: center;
 
   &:last-child {
@@ -814,6 +859,7 @@ body {
 
   &__link {
     display: inline-block;
+    vertical-align: middle;
     background: $color-bg url(../img/sprite-clients-set.png) 0 0 no-repeat;
     font-size: 0;
     opacity: .2;
@@ -986,6 +1032,7 @@ body {
 
   &__column {
     display: inline-block;
+    vertical-align: top;
     width: 220px;
     margin-right: 20px;
 
@@ -1058,6 +1105,7 @@ body {
 
   &__btn {
     display: inline-block;
+    vertical-align: top;
     min-width: 220px;
     margin-right: 20px;
     margin-bottom: 20px;
@@ -1303,7 +1351,7 @@ body {
   }
 }
 
-/* Catalog */
+/* Section Catalog */
 
 .catalog {
   margin-left: 320px;
@@ -1411,6 +1459,7 @@ body {
 .catalog-item {
   position: relative;
   display: inline-block;
+  vertical-align: top;
   width: 240px;
   margin-bottom: 80px;
   margin-right: 80px;
